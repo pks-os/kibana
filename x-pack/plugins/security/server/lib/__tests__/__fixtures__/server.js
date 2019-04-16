@@ -13,6 +13,7 @@ export function serverFixture() {
     expose: stub(),
     log: stub(),
     route: stub(),
+    decorate: stub(),
 
     info: {
       protocol: 'protocol'
@@ -35,7 +36,7 @@ export function serverFixture() {
       security: {
         getUser: stub(),
         authenticate: stub(),
-        deauthenticate: stub()
+        deauthenticate: stub(),
       },
 
       xpack_main: {

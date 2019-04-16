@@ -24,7 +24,11 @@ module.exports = function (grunt) {
 
   grunt.registerTask('jenkins:unit', [
     'run:eslint',
-    'run:tslint',
+    'run:sasslint',
+    'run:checkTsProjects',
+    'run:checkCoreApiChanges',
+    'run:typeCheck',
+    'run:i18nCheck',
     'run:checkFileCasing',
     'licenses',
     'verifyDependencyVersions',
@@ -34,12 +38,6 @@ module.exports = function (grunt) {
     'test:jest_integration',
     'test:projects',
     'test:browser-ci',
-    'test:api',
-    'verifyTranslations',
-  ]);
-
-  grunt.config.set('functional_test_runner.functional.options.configOverrides.mochaOpts.bail', true);
-  grunt.registerTask('jenkins:selenium', [
-    'test:uiRelease'
+    'run:apiIntegrationTests',
   ]);
 };
